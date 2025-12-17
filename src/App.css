@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@import "tailwindcss";
+
+
+
+/* fonts */
+@theme{
+    --font-clean: "Montserrat", sans-serif;
+    --font-ios: "DM Sans", sans-serif;
+    --font-playfair: "Playfair Display", serif;;
+}
+
+
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* colors */
+@custom-variant yellow (&:where(.yellow, .yellow *));
+@custom-variant sky (&:where(.sky, .sky *));
+@custom-variant pink (&:where(.pink, .pink *));
+@custom-variant green (&:where(.green, .green *));
+@custom-variant red (&:where(.red, .red *));
+@custom-variant indigo (&:where(.indigo, .indigo *));
+@custom-variant neutral (&:where(.neutral, .neutral *));
+@custom-variant purple (&:where(.purple, .purple *));
+@custom-variant teal (&:where(.teal, .teal *));
+@custom-variant orange (&:where(.orange, .orange *));
+@custom-variant sunlight (&:where(.sunlight, .sunlight *));
+@custom-variant custom (&:where(.custom, .custom *));
+
+
+/* filters */
+@custom-variant retro (&:where(.retro, .retro *));
+@custom-variant sunny (&:where(.sunny, .sunny *));
+@custom-variant bw (&:where(.bw, .bw *));
+@custom-variant tealOrange (&:where(.tealOrange, .tealOrange *));
+@custom-variant bright (&:where(.bright, .bright *));
+@custom-variant cinematic (&:where(.cinematic, .cinematic *));
+
+
+/* bold */
+@custom-variant boldtext (&:where(.boldtext, .boldtext *));
+@custom-variant italicText (&:where(.italicText, .italicText *));
+@custom-variant underlinetext (&:where(.underlinetext, .underlinetext *));
+@custom-variant strike (&:where(.strike, .strike *));
+
+/* text color */
+@custom-variant customText (&:where(.customText, .customText *));
+
+
+
+
+/* hide scroll bar */
+
+/* Hide scrollbar for Chrome, Safari and Edge */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+
+
+
+
+
+
