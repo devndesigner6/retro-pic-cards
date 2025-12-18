@@ -439,18 +439,18 @@ function App() {
 
 
               
-              <button type="button"  onClick={handleReset}  className='circle-ring border-2 py-2 w-35 flex justify-center items-center rounded-full text-black font-semibold text-base cursor-pointer bg-white hover:bg-neutral-200 transition-all duration-300 active:scale-95' style={{fontFamily: "'Instrument Serif', serif"}}>
+              <button type="button"  onClick={handleReset}  className='glass-button border-2 py-2 w-35 flex justify-center items-center rounded-full text-black font-semibold text-base cursor-pointer bg-white/80 hover:bg-white transition-all duration-300 active:scale-95' style={{fontFamily: "'Instrument Serif', serif"}}>
                 <RiResetLeftLine className='mr-2 '/>
                 Reset</button>
 
-              <label htmlFor='file' className='circle-ring bg-black py-2.5 w-35 flex justify-center items-center  rounded-full text-base text-white cursor-pointer hover:bg-neutral-700 transition-all duration-300 active:scale-95' style={{fontFamily: "'Instrument Serif', serif"}}>
+              <label htmlFor='file' className='glass-button bg-black/90 py-2.5 w-35 flex justify-center items-center  rounded-full text-base text-white cursor-pointer hover:bg-black transition-all duration-300 active:scale-95' style={{fontFamily: "'Instrument Serif', serif"}}>
                 <TbUpload className='mr-2'/>
                 Upload</label>
           </form>
             
             <div>
                 { image ? 
-                  (<button type="button"  onClick={handleDownload} disabled={isDownloading} className='circle-ring bg-black py-2.5 w-74 flex justify-center items-center  rounded-full text-base text-white   cursor-pointer hover:bg-neutral-700 transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed' style={{fontFamily: "'Instrument Serif', serif"}}>
+                  (<button type="button"  onClick={handleDownload} disabled={isDownloading} className='glass-button bg-black/90 py-2.5 w-74 flex justify-center items-center  rounded-full text-base text-white   cursor-pointer hover:bg-black transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed' style={{fontFamily: "'Instrument Serif', serif"}}>
                     <MdOutlineFileDownload className='mr-2 size-6'/>
                     {isDownloading ? 'Downloading...' : 'Download'}</button>) : null
                 
