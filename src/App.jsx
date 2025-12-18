@@ -219,7 +219,7 @@ function App() {
               value={title}
               onChange={(e) => setTitle(e.target.value)} 
               type="text" 
-              className='border-3 rounded-xl p-3.5 w-full text-base font-medium bg-[var(--surface-2)] text-[var(--text)] placeholder:text-[var(--muted)]' 
+              className='modern-input border-2 border-[rgba(110,220,111,0.2)] rounded-xl p-3.5 w-full text-base font-medium bg-[var(--surface-2)] text-[var(--text)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 focus:outline-none transition-all duration-300 hover:border-[rgba(110,220,111,0.3)]' 
               placeholder="What’s on your mind?"
               maxLength={50}
               ref={titleRef} />
