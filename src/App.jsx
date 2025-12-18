@@ -129,7 +129,7 @@ function App() {
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all duration-200 ${activeTab === tab.key ? 'bg-[var(--accent)] text-white' : 'bg-[rgba(255,255,255,0.06)] text-[var(--muted)] hover:bg-[rgba(255,255,255,0.12)]'}`}
+                className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all duration-200 ${activeTab === tab.key ? 'bg-[var(--accent)] text-black' : 'bg-[rgba(255,255,255,0.1)] text-[var(--muted)] hover:bg-[rgba(255,255,255,0.16)]'}`}
               >
                 {tab.label}
               </button>
@@ -146,7 +146,7 @@ function App() {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     type="text"
-                    className='border-2 border-neutral-300 rounded-lg p-3 w-full text-base font-medium focus:border-black focus:outline-none transition-colors'
+                    className='border-2 border-[rgba(255,255,255,0.18)] rounded-lg p-3 w-full text-base font-medium focus:border-[var(--accent)] focus:outline-none transition-colors bg-[rgba(255,255,255,0.06)] text-[var(--text)] placeholder:text-[rgba(255,255,255,0.72)]'
                     placeholder="What’s on your mind?"
                     maxLength={50}
                     ref={titleRef}
@@ -187,7 +187,7 @@ function App() {
                   }}
                   type="date"
                   onFocus={(e) => e.target.blur()}
-                  className='border-2 border-neutral-300 rounded-lg p-3 w-full text-base font-medium focus:border-black focus:outline-none transition-colors'
+                  className='border-2 border-[rgba(255,255,255,0.18)] rounded-lg p-3 w-full text-base font-medium focus:border-[var(--accent)] focus:outline-none transition-colors bg-[rgba(255,255,255,0.06)] text-[var(--text)] placeholder:text-[rgba(255,255,255,0.72)]'
                   ref={dateRef}
                 />
               </div>
@@ -198,7 +198,7 @@ function App() {
         </div>
 
         {/* Desktop controls (unchanged) */}
-        <div className='hidden md:flex h-auto md:h-screen w-auto md:w-100 glass-panel flex-col items-center pt-15 pb-15 gap-5 order-2 md:order-1 md:overflow-y-auto no-scrollbar'>
+        <div className='hidden md:flex h-auto md:h-screen w-auto md:w-100 glass-panel flex-col items-center pt-15 pb-15 gap-5 order-2 md:order-1 md:overflow-y-auto no-scrollbar text-[var(--text)]'>
 
           <div className='flex flex-col gap-2'>
             <h1 className='text-2xl bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Title</h1>
@@ -208,7 +208,7 @@ function App() {
               value={title}
               onChange={(e) => setTitle(e.target.value)} 
               type="text" 
-              className='border-3 rounded-md p-2.5 w-70 text-lg font-semibold' 
+              className='border-3 rounded-md p-2.5 w-70 text-lg font-semibold bg-[rgba(255,255,255,0.06)] text-[var(--text)] placeholder:text-[rgba(255,255,255,0.7)]' 
               placeholder="What’s on your mind?"
               maxLength={50}
               ref={titleRef} />
@@ -240,7 +240,7 @@ function App() {
               }} 
               type="date" 
               onFocus={(e) => e.target.blur()}
-              className='border-3 rounded-md p-2.5 w-70 text-lg font-semibold selection:bg-none'
+              className='border-3 rounded-md p-2.5 w-70 text-lg font-semibold selection:bg-none bg-[rgba(255,255,255,0.06)] text-[var(--text)] placeholder:text-[rgba(255,255,255,0.7)]'
               
               ref={dateRef}
             />
@@ -263,7 +263,7 @@ function App() {
         </div>
 
         <div className='mobile-preview md:sticky h-auto md:h-screen w-auto flex-1 flex flex-col justify-center items-center md:-mt-7 selection:text-white selection:bg-black  pt-4 pb-4 md:pb-0  order-1 md:order-2
-        bg-[radial-gradient(circle,_rgba(255,255,255,0.06)_1px,_transparent_1px)]
+        bg-[radial-gradient(circle,_rgba(255,255,255,0.1)_1px,_transparent_1px)]
         bg-[size:10px_10px]
         '>
 
@@ -273,7 +273,7 @@ function App() {
 
             <div ref={imgBoxRef} className='inline-block mobile-preview-card'>
 
-              <div className={`mobile-card glass glass-card ${cardMotionClass} w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-[rgba(199,255,90,0.06)] m-2 md:m-6 mb-4 md:mb-10 rounded-lg border border-[rgba(199,255,90,0.35)] flex flex-col  hover:rotate-5 transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap relative
+              <div className={`mobile-card glass glass-card ${cardMotionClass} w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-[rgba(199,255,99,0.12)] m-2 md:m-6 mb-4 md:mb-10 rounded-lg border border-[rgba(199,255,99,0.48)] flex flex-col  hover:rotate-5 transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap relative
 
 
 
@@ -395,7 +395,7 @@ function App() {
 
                 <div className=' flex  flex-wrap '>
 
-                  <h1 className='mt-1 md:mt-2 text-lg break-all text-contrast
+                  <h1 className='mt-1 md:mt-2 text-lg break-all text-contrast text-[var(--text)]
 
                   boldtext:font-bold
                   italicText:italic

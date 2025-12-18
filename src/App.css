@@ -7,19 +7,20 @@
 
 /* Minimal theme tokens */
 :root {
-  --bg: #0d1b12;
-  --surface: rgba(255, 255, 255, 0.06);
-  --surface-2: rgba(255, 255, 255, 0.1);
-  --border: rgba(165, 255, 174, 0.22);
-  --text: #e7f3e6;
-  --muted: #a7c3a6;
-  --accent: #c7ff5a; /* neon leaf */
+  --bg: #0f1a13;
+  --surface: rgba(255, 255, 255, 0.09);
+  --surface-2: rgba(255, 255, 255, 0.14);
+  --border: rgba(183, 255, 140, 0.42);
+  --text: #f7f3e8;
+  --muted: #d6ccb8;
+  --accent: #c7ff63; /* bright leaf */
+  --accent-2: #3b8f4d; /* mid green */
 }
 
 body {
-  background: radial-gradient(1200px 600px at 10% 10%, #12301d 0%, transparent 42%),
-              radial-gradient(900px 480px at 90% 0%, #0f2a19 0%, transparent 45%),
-              linear-gradient(180deg, #0d1b12 0%, #0f1f15 100%);
+  background: radial-gradient(1200px 620px at 12% 12%, #183424 0%, transparent 46%),
+              radial-gradient(1000px 540px at 82% 8%, #143020 0%, transparent 48%),
+              linear-gradient(180deg, #0f1a13 0%, #0f2016 100%);
   color: var(--text);
 }
 
