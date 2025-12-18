@@ -208,39 +208,37 @@ function App() {
 
         </div>
 
-        {/* Desktop controls (unchanged) */}
-        <div className='hidden md:flex h-auto md:h-screen w-auto md:w-100 flex-col items-center pt-15 pb-15 gap-5 order-2 md:order-1 md:overflow-y-auto no-scrollbar text-[var(--text)] bg-[var(--surface)] shadow-[0_12px_32px_rgba(0,0,0,0.25)] border border-[rgba(0,0,0,0.05)]'>
+        {/* Desktop controls */}
+        <div className='hidden md:flex h-auto md:h-screen w-auto md:w-100 flex-col items-center pt-12 pb-12 gap-8 order-2 md:order-1 md:overflow-y-auto no-scrollbar text-[var(--text)] bg-[var(--surface)] shadow-[0_12px_32px_rgba(0,0,0,0.25)] border-r border-[rgba(0,0,0,0.08)]'>
 
-          <div className='flex flex-col gap-2'>
-            <h1 className='text-2xl tracking-tight text-[var(--text)]' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Title</h1>
-            <form action="" >
+          <div className='flex flex-col gap-3 w-full px-6'>
+            <h1 className='text-2xl tracking-tight text-[var(--text)] font-semibold' style={{fontFamily: "'Instrument Serif', serif"}}>Title</h1>
+            <form action="" className='w-full'>
 
               <input 
               value={title}
               onChange={(e) => setTitle(e.target.value)} 
               type="text" 
-              className='border-3 rounded-md p-2.5 w-70 text-lg font-semibold bg-[var(--surface-2)] text-[var(--text)] placeholder:text-[rgba(31,43,31,0.7)]' 
+              className='border-3 rounded-xl p-3.5 w-full text-base font-medium bg-[var(--surface-2)] text-[var(--text)] placeholder:text-[var(--muted)]' 
               placeholder="What’s on your mind?"
               maxLength={50}
               ref={titleRef} />
             </form>
           </div>
 
-
-
-          <div>
+          <div className='w-full px-6'>
             <Bold  value={textColor} onChange={setTextColor}  />
           </div>
 
-          <div>
-            <h1 className='text-2xl mb-2 tracking-tight text-[var(--text)]' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Font Style</h1>
+          <div className='w-full px-6'>
+            <h1 className='text-2xl mb-3 tracking-tight text-[var(--text)] font-semibold' style={{fontFamily: "'Instrument Serif', serif"}}>Font Style</h1>
             <FontStyle selectedFont={font} onFontChange={setFont} />
           </div>
 
 
-          <div className='flex flex-col gap-2'>
-            <h1 className='text-2xl tracking-tight text-[var(--text)]' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Date</h1>
-            <form action=""  onClick={() => dateRef.current.showPicker()} >
+          <div className='flex flex-col gap-3 w-full px-6'>
+            <h1 className='text-2xl tracking-tight text-[var(--text)] font-semibold' style={{fontFamily: "'Instrument Serif', serif"}}>Date</h1>
+            <form action=""  onClick={() => dateRef.current.showPicker()} className='w-full'>
 
               <input 
               onChange={(e) => {
@@ -251,24 +249,18 @@ function App() {
               }} 
               type="date" 
               onFocus={(e) => e.target.blur()}
-              className='border-3 rounded-md p-2.5 w-70 text-lg font-semibold selection:bg-none bg-[var(--surface-2)] text-[var(--text)] placeholder:text-[rgba(31,43,31,0.7)]'
-              
+              className='modern-input border-2 border-[rgba(110,220,111,0.2)] rounded-xl p-3.5 w-full text-base font-medium bg-[var(--surface-2)] text-[var(--text)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 focus:outline-none transition-all duration-300 hover:border-[rgba(110,220,111,0.3)]'
               ref={dateRef}
             />
-
             </form>
           </div>
 
-          <div>
-            
+          <div className='w-full px-6'>
             <Bgcolor  value={color} onChange={setColor} />
-
           </div>
 
-          <div>
-
+          <div className='w-full px-6'>
             <Filter  onFilterChange={setFilter}/>
-            
           </div>
 
         </div>
