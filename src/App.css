@@ -66,6 +66,33 @@
 }
 
 
+/* Mobile preview + controls behavior */
+@media (max-width: 767px) {
+  .mobile-preview-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #f8fafc;
+  }
+
+  .mobile-controls {
+    max-height: calc(100dvh - 340px);
+    overflow-y: auto;
+    padding-bottom: 24px;
+  }
+
+  .mobile-controls::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-controls {
+    scrollbar-width: none;
+  }
+}
+
+
 
 
 
