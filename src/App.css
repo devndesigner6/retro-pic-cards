@@ -85,6 +85,10 @@ body {
   pointer-events: none;
 }
 
+.text-contrast {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
 /* fonts */
 @theme{
     --font-clean: "Montserrat", sans-serif;

@@ -106,6 +106,7 @@ function App() {
 
 
   const cardMotionClass = image ? '' : 'sheen float-soft';
+  const resolvedTextColor = textColor || 'var(--text)';
 
 
 
@@ -395,7 +396,7 @@ function App() {
 
                 <div className=' flex  flex-wrap '>
 
-                  <h1 className='mt-1 md:mt-2 text-lg break-all 
+                  <h1 className='mt-1 md:mt-2 text-lg break-all text-contrast
 
                   boldtext:font-bold
                   italicText:italic
@@ -406,7 +407,8 @@ function App() {
 
                   style={{
                     "--customTextColor": textColor,
-                    fontFamily: font
+                    fontFamily: font,
+                    color: resolvedTextColor
                   }}
                   
                   >{title}</h1>
