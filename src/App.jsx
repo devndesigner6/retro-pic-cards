@@ -273,7 +273,7 @@ function App() {
 
             <div ref={imgBoxRef} className='inline-block mobile-preview-card'>
 
-              <div className={`mobile-card glass glass-card ${cardMotionClass} w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-[rgba(199,255,90,0.06)] m-2 md:m-6 mb-4 md:mb-10 rounded-lg border border-[rgba(199,255,90,0.35)] flex flex-col  hover:rotate-5 transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap   relative
+              <div className={`mobile-card glass glass-card ${cardMotionClass} w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-[rgba(199,255,90,0.06)] m-2 md:m-6 mb-4 md:mb-10 rounded-lg border border-[rgba(199,255,90,0.35)] flex flex-col  hover:rotate-5 transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap relative
 
 
 
@@ -299,8 +299,7 @@ function App() {
               
               
               custom:bg-[var(--customColor)] custom:border-[var(--customBorder)]
-              
-              '
+              `}
               style={{
                 "--customColor": color,
                 "--customBorder": darkenColor(color, 0.35), // 35% darker of stored color
