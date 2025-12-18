@@ -72,31 +72,31 @@
     position: sticky;
     top: 0;
     z-index: 30;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     background: #f8fafc;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   }
 
   .mobile-preview-card {
-    width: min(360px, 92vw);
+    width: min(320px, 90vw);
   }
 
   .mobile-actions {
-    width: min(360px, 92vw);
+    width: min(320px, 90vw);
   }
 
   .mobile-controls-panel {
-    max-height: calc(100dvh - 370px);
+    max-height: calc(100dvh - 340px);
     overflow-y: auto;
     padding-bottom: 40px;
     width: 100%;
   }
 
   .mobile-card {
-    width: clamp(230px, 82vw, 280px);
-    height: clamp(300px, 88vw, 340px);
-    margin-bottom: 16px;
+    width: clamp(220px, 80vw, 260px);
+    height: clamp(280px, 85vw, 320px);
+    margin-bottom: 12px;
   }
 
   .mobile-controls-panel::-webkit-scrollbar {

@@ -113,9 +113,9 @@ function App() {
       <div className='flex selection:text-white selection:bg-black flex-col md:flex-row '>
 
         {/* Mobile controls (tabbed) */}
-        <div className='mobile-controls-panel md:hidden bg-neutral-100 flex flex-col items-center pt-4 pb-6 gap-4 order-2'>
+        <div className='mobile-controls-panel md:hidden bg-white flex flex-col items-center pt-0 pb-6 gap-3 order-2'>
 
-          <div className='flex w-full justify-center gap-1.5 px-3 sticky top-0 z-30 bg-neutral-100 pb-3 pt-2 border-b border-neutral-300 shadow-sm'>
+          <div className='flex w-full justify-center gap-1.5 px-2 sticky top-0 z-30 bg-white pb-3 pt-3 border-b-2 border-neutral-200'>
             {[
               { key: 'text', label: 'Text' },
               { key: 'color', label: 'Colors' },
@@ -125,7 +125,7 @@ function App() {
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`flex-1 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${activeTab === tab.key ? 'bg-black text-white shadow-md scale-105' : 'bg-white text-neutral-700 border border-neutral-300 hover:bg-neutral-50'}`}
+                className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all duration-200 ${activeTab === tab.key ? 'bg-black text-white' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'}`}
               >
                 {tab.label}
               </button>
@@ -258,7 +258,7 @@ function App() {
 
         </div>
 
-        <div className='mobile-preview md:sticky h-auto md:h-screen w-auto flex-1 flex flex-col justify-center items-center md:-mt-7 selection:text-white selection:bg-black  pt-6 pb-6 md:pb-0  order-1 md:order-2
+        <div className='mobile-preview md:sticky h-auto md:h-screen w-auto flex-1 flex flex-col justify-center items-center md:-mt-7 selection:text-white selection:bg-black  pt-4 pb-4 md:pb-0  order-1 md:order-2
         bg-[radial-gradient(circle,_#e5e7eb_1px,_transparent_1px)]
         bg-[size:10px_10px]
         '>
@@ -269,7 +269,7 @@ function App() {
 
             <div ref={imgBoxRef} className='inline-block mobile-preview-card'>
 
-              <div className='mobile-card w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-[#e0f2fe] m-4 md:m-6 mb-10 rounded-lg shadow-lg border-2 border-[#7dd3fc] flex flex-col  hover:rotate-5 transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap   relative
+              <div className='mobile-card w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-[#e0f2fe] m-2 md:m-6 mb-4 md:mb-10 rounded-lg shadow-lg border-2 border-[#7dd3fc] flex flex-col  hover:rotate-5 transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap   relative
 
 
 
