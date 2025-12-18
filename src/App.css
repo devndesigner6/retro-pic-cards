@@ -155,6 +155,7 @@ body {
               0 0 0 1px rgba(110, 220, 111, 0.15) inset,
               0 1px 2px rgba(255, 255, 255, 0.15) inset;
   animation: soft-glow 3s ease-in-out infinite;
+  z-index: 10;
 }
 
 .glass-button::before {
@@ -172,6 +173,7 @@ body {
   mask-composite: exclude;
   opacity: 0.8;
   pointer-events: none;
+  z-index: -1;
 }
 
 @keyframes soft-glow {
