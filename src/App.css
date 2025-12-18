@@ -68,26 +68,31 @@
 
 /* Mobile preview + controls behavior */
 @media (max-width: 767px) {
-  .mobile-preview-sticky {
+  .mobile-preview {
     position: sticky;
     top: 0;
-    z-index: 10;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    background: #f8fafc;
+    z-index: 20;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    background: linear-gradient(180deg, #f8fafc 0%, #f8fafc 70%, rgba(248, 250, 252, 0.85) 100%);
+    border-bottom: 1px solid #e5e7eb;
   }
 
-  .mobile-controls {
-    max-height: calc(100dvh - 340px);
+  .mobile-preview > div {
+    width: min(360px, 92vw);
+  }
+
+  .mobile-controls-panel {
+    max-height: calc(100dvh - 420px);
     overflow-y: auto;
-    padding-bottom: 24px;
+    padding-bottom: 32px;
   }
 
-  .mobile-controls::-webkit-scrollbar {
+  .mobile-controls-panel::-webkit-scrollbar {
     display: none;
   }
 
-  .mobile-controls {
+  .mobile-controls-panel {
     scrollbar-width: none;
   }
 }
