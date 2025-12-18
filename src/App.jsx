@@ -31,6 +31,8 @@ function App() {
 
   const [filter, setFilter] = useState("");
 
+  const [activeTab, setActiveTab] = useState('text');
+
 
 
   
@@ -110,7 +112,83 @@ function App() {
     <Analytics/>
       <div className='flex selection:text-white selection:bg-black flex-col md:flex-row '>
 
-        <div className='mobile-controls-panel h-auto md:h-screen w-auto md:w-100 bg-neutral-100 flex flex-col items-center pt-15 pb-15 gap-5  order-2 md:order-1 md:overflow-y-auto no-scrollbar'>
+        {/* Mobile controls (tabbed) */}
+        <div className='mobile-controls-panel md:hidden bg-neutral-100 flex flex-col items-center pt-4 pb-6 gap-4 order-2'>
+
+          <div className='flex w-full justify-center gap-2 px-4 sticky top-0 z-30 bg-neutral-100 pb-2 pt-1 border-b border-neutral-200'>
+            {[
+              { key: 'text', label: 'Text' },
+              { key: 'color', label: 'Colors' },
+              { key: 'filters', label: 'Filters' },
+              { key: 'date', label: 'Date' }
+            ].map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`px-3 py-2 rounded-md text-sm font-semibold border ${activeTab === tab.key ? 'bg-black text-white border-black' : 'bg-white border-neutral-300'}`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          <div className='w-full px-4 pb-2'>
+            {activeTab === 'text' && (
+              <div className='flex flex-col gap-4'>
+                <div className='flex flex-col gap-2'>
+                  <h1 className='font-semibold text-2xl'>Title</h1>
+                  <input
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    type="text"
+                    className='border-3 rounded-md p-2.5 w-full text-lg font-semibold'
+                    placeholder="What’s on your mind?"
+                    maxLength={50}
+                    ref={titleRef}
+                  />
+                </div>
+
+                <Bold value={textColor} onChange={setTextColor} />
+
+                <div>
+                  <h1 className='text-2xl font-semibold mb-2'>Font Style</h1>
+                  <FontStyle selectedFont={font} onFontChange={setFont} />
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'color' && (
+              <Bgcolor value={color} onChange={setColor} />
+            )}
+
+            {activeTab === 'filters' && (
+              <Filter onFilterChange={setFilter} />
+            )}
+
+            {activeTab === 'date' && (
+              <div className='flex flex-col gap-2'>
+                <h1 className='font-semibold text-2xl'>Date</h1>
+                <input
+                  onClick={() => dateRef.current?.showPicker()}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    const [y, m, d] = value.split("-");
+                    const formatted = `${d}.${m}.${y}`;
+                    setdate(formatted);
+                  }}
+                  type="date"
+                  onFocus={(e) => e.target.blur()}
+                  className='border-3 rounded-md p-2.5 w-full text-lg font-semibold selection:bg-none'
+                  ref={dateRef}
+                />
+              </div>
+            )}
+          </div>
+
+        </div>
+
+        {/* Desktop controls (unchanged) */}
+        <div className='hidden md:flex h-auto md:h-screen w-auto md:w-100 bg-neutral-100 flex-col items-center pt-15 pb-15 gap-5 order-2 md:order-1 md:overflow-y-auto no-scrollbar'>
 
           <div className='flex flex-col gap-2'>
             <h1 className='font-semibold text-2xl'>Title</h1>
@@ -174,7 +252,7 @@ function App() {
 
         </div>
 
-        <div className='mobile-preview md:sticky h-auto md:h-screen w-auto flex-1 flex flex-col justify-center items-center md:-mt-7 selection:text-white selection:bg-black  pt-10 pb-10 md:pb-0  order-1 md:order-2
+        <div className='mobile-preview md:sticky h-auto md:h-screen w-auto flex-1 flex flex-col justify-center items-center md:-mt-7 selection:text-white selection:bg-black  pt-6 pb-6 md:pb-0  order-1 md:order-2
         bg-[radial-gradient(circle,_#e5e7eb_1px,_transparent_1px)]
         bg-[size:10px_10px]
         '>
@@ -183,7 +261,7 @@ function App() {
             <Link />
 
 
-            <div ref={imgBoxRef} className='inline-block'>
+            <div ref={imgBoxRef} className='inline-block mobile-preview-card'>
 
               <div className='w-[300px] md:w-[320px] h-[370px] md:h-[400px] bg-[#e0f2fe] m-6 mb-10 rounded-lg shadow-lg border-2 border-[#7dd3fc] flex flex-col  hover:rotate-5 transition-all duration-400 px-5 pt-5 pb-4 overflow-hidden flex-wrap   relative
 
@@ -334,7 +412,7 @@ function App() {
             </div>
 
             
-          <form action="" className='flex  flex-row gap-4 justify-center   items-center mb-4'>
+          <form action="" className='flex flex-row gap-4 justify-center items-center mb-4 mobile-actions'>
 
             <input id='file' onChange={ handleUpload} accept="image/*" type="file" className='border-2 cursor-pointer rounded-md p-2 hidden'/>
 

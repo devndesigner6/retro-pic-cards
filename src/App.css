@@ -71,21 +71,26 @@
   .mobile-preview {
     position: sticky;
     top: 0;
-    z-index: 20;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    background: linear-gradient(180deg, #f8fafc 0%, #f8fafc 70%, rgba(248, 250, 252, 0.85) 100%);
-    border-bottom: 1px solid #e5e7eb;
+    z-index: 30;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #f8fafc;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
   }
 
-  .mobile-preview > div {
+  .mobile-preview-card {
+    width: min(360px, 92vw);
+  }
+
+  .mobile-actions {
     width: min(360px, 92vw);
   }
 
   .mobile-controls-panel {
-    max-height: calc(100dvh - 420px);
+    max-height: calc(100dvh - 430px);
     overflow-y: auto;
     padding-bottom: 32px;
+    width: 100%;
   }
 
   .mobile-controls-panel::-webkit-scrollbar {
