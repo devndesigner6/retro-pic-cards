@@ -18,6 +18,13 @@ const fonts = [
     { name: "Palatino", value: "'Palatino Linotype', serif" },
     { name: "Lucida Console", value: "'Lucida Console', monospace" },
     { name: "Consolas", value: "Consolas, monospace" },
+    { name: "Oswald", value: "'Oswald', sans-serif" },
+    { name: "Cormorant Garamond", value: "'Cormorant Garamond', serif" },
+    { name: "Geist", value: "'Geist', 'Inter', sans-serif" },
+    { name: "Lora", value: "'Lora', serif" },
+    { name: "Inter", value: "'Inter', sans-serif" },
+    { name: "Roboto", value: "'Roboto', sans-serif" },
+    { name: "Playfair Display", value: "'Playfair Display', serif" },
 ];
 
 function FontStyle({ selectedFont, onFontChange }) {
