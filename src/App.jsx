@@ -113,9 +113,9 @@ function App() {
       <div className='flex selection:text-white selection:bg-black flex-col md:flex-row '>
 
         {/* Mobile controls (tabbed) */}
-        <div className='mobile-controls-panel md:hidden bg-white flex flex-col items-center pt-0 pb-6 gap-3 order-2'>
+        <div className='mobile-controls-panel md:hidden glass-panel flex flex-col items-center pt-0 pb-6 gap-3 order-2 text-[var(--text)]'>
 
-          <div className='flex w-full justify-center gap-1.5 px-2 sticky top-0 z-30 bg-white pb-3 pt-3 border-b-2 border-neutral-200'>
+          <div className='flex w-full justify-center gap-1.5 px-2 sticky top-0 z-30 bg-[var(--surface-2)] backdrop-blur pb-3 pt-3 border-b-[var(--border)]'>
             {[
               { key: 'text', label: 'Text' },
               { key: 'color', label: 'Colors' },
@@ -125,7 +125,7 @@ function App() {
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all duration-200 ${activeTab === tab.key ? 'bg-black text-white' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'}`}
+                className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all duration-200 ${activeTab === tab.key ? 'bg-[var(--accent)] text-white' : 'bg-[rgba(255,255,255,0.06)] text-[var(--muted)] hover:bg-[rgba(255,255,255,0.12)]'}`}
               >
                 {tab.label}
               </button>
@@ -194,7 +194,7 @@ function App() {
         </div>
 
         {/* Desktop controls (unchanged) */}
-        <div className='hidden md:flex h-auto md:h-screen w-auto md:w-100 bg-neutral-100 flex-col items-center pt-15 pb-15 gap-5 order-2 md:order-1 md:overflow-y-auto no-scrollbar'>
+        <div className='hidden md:flex h-auto md:h-screen w-auto md:w-100 glass-panel flex-col items-center pt-15 pb-15 gap-5 order-2 md:order-1 md:overflow-y-auto no-scrollbar'>
 
           <div className='flex flex-col gap-2'>
             <h1 className='text-2xl bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Title</h1>
@@ -259,7 +259,7 @@ function App() {
         </div>
 
         <div className='mobile-preview md:sticky h-auto md:h-screen w-auto flex-1 flex flex-col justify-center items-center md:-mt-7 selection:text-white selection:bg-black  pt-4 pb-4 md:pb-0  order-1 md:order-2
-        bg-[radial-gradient(circle,_#e5e7eb_1px,_transparent_1px)]
+        bg-[radial-gradient(circle,_rgba(255,255,255,0.06)_1px,_transparent_1px)]
         bg-[size:10px_10px]
         '>
 
@@ -269,7 +269,7 @@ function App() {
 
             <div ref={imgBoxRef} className='inline-block mobile-preview-card'>
 
-              <div className='mobile-card w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-[#e0f2fe] m-2 md:m-6 mb-4 md:mb-10 rounded-lg shadow-lg border-2 border-[#7dd3fc] flex flex-col  hover:rotate-5 transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap   relative
+              <div className='mobile-card glass glass-card sheen float-soft w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-[rgba(255,255,255,0.04)] m-2 md:m-6 mb-4 md:mb-10 rounded-lg border flex flex-col  hover:rotate-5 transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap   relative
 
 
 
@@ -411,7 +411,7 @@ function App() {
 
 
                 <div className='  w-full h-8 md:h-11 flex justify-end items-end'>
-                  <p className='absolute bottom-4 right-5 mt-0 md:mt-2  text-sm text-[#777777] font-mono '>{date}</p>
+                  <p className='absolute bottom-4 right-5 mt-0 md:mt-2  text-sm text-[var(--muted)] font-mono '>{date}</p>
                 </div>
               </div>
 
