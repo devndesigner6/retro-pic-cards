@@ -1,5 +1,5 @@
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useMemo } from 'react'
 import './App.css'
 import { toPng } from 'html-to-image'
 
@@ -101,12 +101,17 @@ function App() {
       link.download = "card.png";
       link.href = dataUrl;
       link.click();
+
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 1500);
     });
 };
 
 
   const cardMotionClass = image ? '' : 'sheen float-soft';
   const resolvedTextColor = textColor || 'var(--text)';
+  const confettiPieces = useMemo(() => Array.from({ length: 40 }), []);
+  const [showConfetti, setShowConfetti] = useState(false);
 
 
 
@@ -117,9 +122,9 @@ function App() {
       <div className='flex selection:text-white selection:bg-black flex-col md:flex-row '>
 
         {/* Mobile controls (tabbed) */}
-        <div className='mobile-controls-panel md:hidden glass-panel flex flex-col items-center pt-0 pb-6 gap-3 order-2 text-[var(--text)]'>
+        <div className='mobile-controls-panel md:hidden flex flex-col items-center pt-0 pb-6 gap-3 order-2 text-[var(--text)] bg-[var(--surface)] shadow-lg border border-[rgba(0,0,0,0.05)]'>
 
-          <div className='flex w-full justify-center gap-1.5 px-2 sticky top-0 z-30 bg-[var(--surface-2)] backdrop-blur pb-3 pt-3 border-b-[var(--border)]'>
+          <div className='flex w-full justify-center gap-1.5 px-2 sticky top-0 z-30 bg-[var(--surface-2)] pb-3 pt-3 border-b-[var(--border)]'>
             {[
               { key: 'text', label: 'Text' },
               { key: 'color', label: 'Colors' },
@@ -129,7 +134,7 @@ function App() {
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all duration-200 ${activeTab === tab.key ? 'bg-[var(--accent)] text-black' : 'bg-[rgba(255,255,255,0.1)] text-[var(--muted)] hover:bg-[rgba(255,255,255,0.16)]'}`}
+                className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all duration-200 ${activeTab === tab.key ? 'bg-[var(--accent)] text-black' : 'bg-[rgba(0,0,0,0.05)] text-[var(--muted)] hover:bg-[rgba(0,0,0,0.08)]'}`}
               >
                 {tab.label}
               </button>
@@ -141,7 +146,7 @@ function App() {
             {activeTab === 'text' && (
               <div className='flex flex-col gap-5 animate-fade-in'>
                 <div className='flex flex-col gap-2'>
-                  <h1 className='text-xl bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Title</h1>
+                  <h1 className='text-xl tracking-tight text-[var(--text)]' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Title</h1>
                   <input
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
@@ -156,7 +161,7 @@ function App() {
                 <Bold value={textColor} onChange={setTextColor} />
 
                 <div>
-                  <h1 className='text-xl mb-2 bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Font Style</h1>
+                  <h1 className='text-xl mb-2 tracking-tight text-[var(--text)]' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Font Style</h1>
                   <FontStyle selectedFont={font} onFontChange={setFont} />
                 </div>
               </div>
@@ -176,7 +181,7 @@ function App() {
 
             {activeTab === 'date' && (
               <div className='flex flex-col gap-3 animate-fade-in'>
-                <h1 className='text-xl bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Date</h1>
+                <h1 className='text-xl tracking-tight text-[var(--text)]' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Date</h1>
                 <input
                   onClick={() => dateRef.current?.showPicker()}
                   onChange={(e) => {
@@ -198,17 +203,17 @@ function App() {
         </div>
 
         {/* Desktop controls (unchanged) */}
-        <div className='hidden md:flex h-auto md:h-screen w-auto md:w-100 glass-panel flex-col items-center pt-15 pb-15 gap-5 order-2 md:order-1 md:overflow-y-auto no-scrollbar text-[var(--text)]'>
+        <div className='hidden md:flex h-auto md:h-screen w-auto md:w-100 flex-col items-center pt-15 pb-15 gap-5 order-2 md:order-1 md:overflow-y-auto no-scrollbar text-[var(--text)] bg-[var(--surface)] shadow-[0_12px_32px_rgba(0,0,0,0.25)] border border-[rgba(0,0,0,0.05)]'>
 
           <div className='flex flex-col gap-2'>
-            <h1 className='text-2xl bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Title</h1>
+            <h1 className='text-2xl tracking-tight text-[var(--text)]' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Title</h1>
             <form action="" >
 
               <input 
               value={title}
               onChange={(e) => setTitle(e.target.value)} 
               type="text" 
-              className='border-3 rounded-md p-2.5 w-70 text-lg font-semibold bg-[rgba(255,255,255,0.06)] text-[var(--text)] placeholder:text-[rgba(255,255,255,0.7)]' 
+              className='border-3 rounded-md p-2.5 w-70 text-lg font-semibold bg-[var(--surface-2)] text-[var(--text)] placeholder:text-[rgba(31,43,31,0.7)]' 
               placeholder="What’s on your mind?"
               maxLength={50}
               ref={titleRef} />
@@ -222,13 +227,13 @@ function App() {
           </div>
 
           <div>
-            <h1 className='text-2xl mb-2 bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Font Style</h1>
+            <h1 className='text-2xl mb-2 tracking-tight text-[var(--text)]' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Font Style</h1>
             <FontStyle selectedFont={font} onFontChange={setFont} />
           </div>
 
 
           <div className='flex flex-col gap-2'>
-            <h1 className='text-2xl bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Date</h1>
+            <h1 className='text-2xl tracking-tight text-[var(--text)]' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Date</h1>
             <form action=""  onClick={() => dateRef.current.showPicker()} >
 
               <input 
@@ -240,7 +245,7 @@ function App() {
               }} 
               type="date" 
               onFocus={(e) => e.target.blur()}
-              className='border-3 rounded-md p-2.5 w-70 text-lg font-semibold selection:bg-none bg-[rgba(255,255,255,0.06)] text-[var(--text)] placeholder:text-[rgba(255,255,255,0.7)]'
+              className='border-3 rounded-md p-2.5 w-70 text-lg font-semibold selection:bg-none bg-[var(--surface-2)] text-[var(--text)] placeholder:text-[rgba(31,43,31,0.7)]'
               
               ref={dateRef}
             />
@@ -263,7 +268,7 @@ function App() {
         </div>
 
         <div className='mobile-preview md:sticky h-auto md:h-screen w-auto flex-1 flex flex-col justify-center items-center md:-mt-7 selection:text-white selection:bg-black  pt-4 pb-4 md:pb-0  order-1 md:order-2
-        bg-[radial-gradient(circle,_rgba(255,255,255,0.1)_1px,_transparent_1px)]
+        bg-[radial-gradient(circle,_rgba(255,255,255,0.08)_1px,_transparent_1px)]
         bg-[size:10px_10px]
         '>
 
@@ -273,7 +278,7 @@ function App() {
 
             <div ref={imgBoxRef} className='inline-block mobile-preview-card'>
 
-              <div className={`mobile-card glass glass-card ${cardMotionClass} w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-[rgba(199,255,99,0.12)] m-2 md:m-6 mb-4 md:mb-10 rounded-lg border border-[rgba(199,255,99,0.48)] flex flex-col  hover:rotate-5 transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap relative
+              <div className={`mobile-card glass glass-card ${cardMotionClass} w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-white m-2 md:m-6 mb-4 md:mb-10 rounded-lg border border-[rgba(0,0,0,0.08)] flex flex-col  hover:rotate-5 transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap relative
 
 
 
@@ -446,6 +451,21 @@ function App() {
                  }
               
             </div>
+            {showConfetti && (
+              <div className='confetti-overlay'>
+                {confettiPieces.map((_, idx) => (
+                  <div
+                    key={idx}
+                    className='confetti-piece'
+                    style={{
+                      left: `${Math.random() * 100}%`,
+                      background: idx % 3 === 0 ? '#6edc6f' : idx % 3 === 1 ? '#2f6b3a' : '#f7f3e8',
+                      animationDelay: `${Math.random() * 0.2}s`,
+                    }}
+                  />
+                ))}
+              </div>
+            )}
         </div>
       </div>
     </>

@@ -8,18 +8,18 @@
 /* Minimal theme tokens */
 :root {
   --bg: #0f1a13;
-  --surface: rgba(255, 255, 255, 0.09);
-  --surface-2: rgba(255, 255, 255, 0.14);
-  --border: rgba(183, 255, 140, 0.42);
-  --text: #f7f3e8;
-  --muted: #d6ccb8;
-  --accent: #c7ff63; /* bright leaf */
-  --accent-2: #3b8f4d; /* mid green */
+  --surface: #ffffff;
+  --surface-2: #f7f7f2;
+  --border: rgba(0, 0, 0, 0.08);
+  --text: #1f2b1f;
+  --muted: #4a5a4a;
+  --accent: #6edc6f; /* bright leaf */
+  --accent-2: #2f6b3a; /* mid green */
 }
 
 body {
-  background: radial-gradient(1200px 620px at 12% 12%, #183424 0%, transparent 46%),
-              radial-gradient(1000px 540px at 82% 8%, #143020 0%, transparent 48%),
+  background: radial-gradient(1200px 620px at 12% 12%, #163824 0%, transparent 46%),
+              radial-gradient(1000px 540px at 82% 8%, #113121 0%, transparent 48%),
               linear-gradient(180deg, #0f1a13 0%, #0f2016 100%);
   color: var(--text);
 }
@@ -88,6 +88,30 @@ body {
 
 .text-contrast {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+/* Confetti */
+.confetti-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 60;
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-20vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(540deg); opacity: 0; }
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 16px;
+  background: var(--accent);
+  opacity: 0.9;
+  animation: confetti-fall 1.4s ease-in forwards;
+  border-radius: 2px;
 }
 
 /* fonts */
