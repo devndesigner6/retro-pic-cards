@@ -92,19 +92,25 @@ function App() {
 
 
   // for image download
- const handleDownload = () => {
-  if (!imgBoxRef.current) return;
+ const [isDownloading, setIsDownloading] = useState(false);
 
-  toPng(imgBoxRef.current, { cacheBust: true, pixelRatio: 4 })
-    .then((dataUrl) => {
-      const link = document.createElement("a");
-      link.download = "card.png";
-      link.href = dataUrl;
-      link.click();
+ const handleDownload = async () => {
+  if (!imgBoxRef.current || isDownloading) return;
+  setIsDownloading(true);
+  try {
+    const dataUrl = await toPng(imgBoxRef.current, { cacheBust: true, pixelRatio: 4 });
+    const link = document.createElement("a");
+    link.download = "card.png";
+    link.href = dataUrl;
+    link.click();
 
-      setShowConfetti(true);
-      setTimeout(() => setShowConfetti(false), 1500);
-    });
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 1500);
+  } catch (e) {
+    console.error('Download failed', e);
+  } finally {
+    setIsDownloading(false);
+  }
 };
 
 
@@ -427,26 +433,26 @@ function App() {
             </div>
 
             
-          <form action="" className='flex flex-row justify-center items-center mb-4 mobile-actions action-bar'>
+          <form action="" className='flex flex-row justify-center items-center gap-4 mb-4 mobile-actions'>
 
             <input id='file' onChange={ handleUpload} accept="image/*" type="file" className='border-2 cursor-pointer rounded-md p-2 hidden'/>
 
 
               
-              <button type="button"  onClick={handleReset}  className='border-2 py-2 w-35 flex justify-center items-center rounded-md text-black font-semibold mt-2  text-xl cursor-pointer bg-white hover:bg-neutral-200 transition-all duration-300 active:scale-95'>
+              <button type="button"  onClick={handleReset}  className='circle-ring border-2 py-2 w-35 flex justify-center items-center rounded-full text-black font-semibold text-base cursor-pointer bg-white hover:bg-neutral-200 transition-all duration-300 active:scale-95' style={{fontFamily: "'Instrument Serif', serif"}}>
                 <RiResetLeftLine className='mr-2 '/>
                 Reset</button>
 
-              <label htmlFor='file' className='bg-black py-2.5 w-35 flex justify-center items-center  rounded-md text-xl text-white mt-2  cursor-pointer hover:bg-neutral-700 transition-all duration-300 active:scale-95'>
+              <label htmlFor='file' className='circle-ring bg-black py-2.5 w-35 flex justify-center items-center  rounded-full text-base text-white cursor-pointer hover:bg-neutral-700 transition-all duration-300 active:scale-95' style={{fontFamily: "'Instrument Serif', serif"}}>
                 <TbUpload className='mr-2'/>
                 Upload</label>
           </form>
             
             <div>
                 { image ? 
-                  (<button type="button"  onClick={handleDownload} className='bg-black py-2.5 w-74 flex justify-center items-center  rounded-md text-xl text-white   cursor-pointer hover:bg-neutral-700 transition-all duration-300 active:scale-95 '>
+                  (<button type="button"  onClick={handleDownload} disabled={isDownloading} className='circle-ring bg-black py-2.5 w-74 flex justify-center items-center  rounded-full text-base text-white   cursor-pointer hover:bg-neutral-700 transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed' style={{fontFamily: "'Instrument Serif', serif"}}>
                     <MdOutlineFileDownload className='mr-2 size-6'/>
-                    Download</button>) : null
+                    {isDownloading ? 'Downloading...' : 'Download'}</button>) : null
                 
                  }
               
