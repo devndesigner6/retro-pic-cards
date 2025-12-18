@@ -146,6 +146,38 @@ body {
   border-radius: 2px;
 }
 
+/* Action buttons bar */
+.action-bar {
+  position: relative;
+  padding: 10px 14px;
+  border-radius: 9999px;
+  overflow: visible;
+  gap: 14px;
+}
+
+.action-bar::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(120deg, rgba(110,220,111,0.4), rgba(47,107,58,0.35), rgba(199,255,99,0.28));
+  filter: blur(10px);
+  opacity: 0.7;
+  animation: bar-flow 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+.action-bar > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes bar-flow {
+  0% { transform: translateX(-4%) scale(0.98); opacity: 0.6; }
+  50% { transform: translateX(4%) scale(1.02); opacity: 0.85; }
+  100% { transform: translateX(-4%) scale(0.98); opacity: 0.6; }
+}
+
 /* fonts */
 @theme{
     --font-clean: "Montserrat", sans-serif;

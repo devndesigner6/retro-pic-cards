@@ -427,13 +427,13 @@ function App() {
             </div>
 
             
-          <form action="" className='flex flex-row gap-4 justify-center items-center mb-4 mobile-actions'>
+          <form action="" className='flex flex-row justify-center items-center mb-4 mobile-actions action-bar'>
 
             <input id='file' onChange={ handleUpload} accept="image/*" type="file" className='border-2 cursor-pointer rounded-md p-2 hidden'/>
 
 
               
-              <button   onClick={handleReset}  className='border-2 py-2 w-35 flex justify-center items-center rounded-md text-black font-semibold mt-2  text-xl cursor-pointer bg-white hover:bg-neutral-200 transition-all duration-300 active:scale-95'>
+              <button type="button"  onClick={handleReset}  className='border-2 py-2 w-35 flex justify-center items-center rounded-md text-black font-semibold mt-2  text-xl cursor-pointer bg-white hover:bg-neutral-200 transition-all duration-300 active:scale-95'>
                 <RiResetLeftLine className='mr-2 '/>
                 Reset</button>
 
@@ -444,7 +444,7 @@ function App() {
             
             <div>
                 { image ? 
-                  (<button  onClick={handleDownload} className='bg-black py-2.5 w-74 flex justify-center items-center  rounded-md text-xl text-white   cursor-pointer hover:bg-neutral-700 transition-all duration-300 active:scale-95 '>
+                  (<button type="button"  onClick={handleDownload} className='bg-black py-2.5 w-74 flex justify-center items-center  rounded-md text-xl text-white   cursor-pointer hover:bg-neutral-700 transition-all duration-300 active:scale-95 '>
                     <MdOutlineFileDownload className='mr-2 size-6'/>
                     Download</button>) : null
                 
