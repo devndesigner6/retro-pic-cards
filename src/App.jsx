@@ -115,7 +115,7 @@ function App() {
         {/* Mobile controls (tabbed) */}
         <div className='mobile-controls-panel md:hidden bg-neutral-100 flex flex-col items-center pt-4 pb-6 gap-4 order-2'>
 
-          <div className='flex w-full justify-center gap-2 px-4 sticky top-0 z-30 bg-neutral-100 pb-2 pt-1 border-b border-neutral-200'>
+          <div className='flex w-full justify-center gap-1.5 px-3 sticky top-0 z-30 bg-neutral-100 pb-3 pt-2 border-b border-neutral-300 shadow-sm'>
             {[
               { key: 'text', label: 'Text' },
               { key: 'color', label: 'Colors' },
@@ -125,23 +125,24 @@ function App() {
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`px-3 py-2 rounded-md text-sm font-semibold border ${activeTab === tab.key ? 'bg-black text-white border-black' : 'bg-white border-neutral-300'}`}
+                className={`flex-1 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${activeTab === tab.key ? 'bg-black text-white shadow-md scale-105' : 'bg-white text-neutral-700 border border-neutral-300 hover:bg-neutral-50'}`}
               >
                 {tab.label}
               </button>
             ))}
           </div>
 
-          <div className='w-full px-4 pb-2'>
+          <div className='w-full px-4 pb-4 flex justify-center'>
+            <div className='w-full max-w-sm'>
             {activeTab === 'text' && (
-              <div className='flex flex-col gap-4'>
+              <div className='flex flex-col gap-5 animate-fade-in'>
                 <div className='flex flex-col gap-2'>
-                  <h1 className='font-semibold text-2xl'>Title</h1>
+                  <h1 className='font-semibold text-xl text-neutral-800'>Title</h1>
                   <input
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     type="text"
-                    className='border-3 rounded-md p-2.5 w-full text-lg font-semibold'
+                    className='border-2 border-neutral-300 rounded-lg p-3 w-full text-base font-medium focus:border-black focus:outline-none transition-colors'
                     placeholder="What’s on your mind?"
                     maxLength={50}
                     ref={titleRef}
@@ -151,23 +152,27 @@ function App() {
                 <Bold value={textColor} onChange={setTextColor} />
 
                 <div>
-                  <h1 className='text-2xl font-semibold mb-2'>Font Style</h1>
+                  <h1 className='text-xl font-semibold mb-2 text-neutral-800'>Font Style</h1>
                   <FontStyle selectedFont={font} onFontChange={setFont} />
                 </div>
               </div>
             )}
 
             {activeTab === 'color' && (
+              <div className='animate-fade-in'>
               <Bgcolor value={color} onChange={setColor} />
+              </div>
             )}
 
             {activeTab === 'filters' && (
+              <div className='animate-fade-in'>
               <Filter onFilterChange={setFilter} />
+              </div>
             )}
 
             {activeTab === 'date' && (
-              <div className='flex flex-col gap-2'>
-                <h1 className='font-semibold text-2xl'>Date</h1>
+              <div className='flex flex-col gap-3 animate-fade-in'>
+                <h1 className='font-semibold text-xl text-neutral-800'>Date</h1>
                 <input
                   onClick={() => dateRef.current?.showPicker()}
                   onChange={(e) => {
@@ -178,11 +183,12 @@ function App() {
                   }}
                   type="date"
                   onFocus={(e) => e.target.blur()}
-                  className='border-3 rounded-md p-2.5 w-full text-lg font-semibold selection:bg-none'
+                  className='border-2 border-neutral-300 rounded-lg p-3 w-full text-base font-medium focus:border-black focus:outline-none transition-colors'
                   ref={dateRef}
                 />
               </div>
             )}
+            </div>
           </div>
 
         </div>
