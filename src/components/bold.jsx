@@ -46,7 +46,7 @@ function Bold({onChange, value}) {
   return (
     <div className='flex flex-col gap-3 justify-center items-center'>
         <div>
-            <h1 className='text-2xl font-semibold mb-2'>Text Style</h1>
+            <h1 className='text-2xl mb-2' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Text Style</h1>
             <div className='rounded-lg w-70 h-15 flex items-center gap-4'>
 
                 
