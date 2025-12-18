@@ -263,7 +263,7 @@ function App() {
 
             <div ref={imgBoxRef} className='inline-block mobile-preview-card'>
 
-              <div className='w-[300px] md:w-[320px] h-[370px] md:h-[400px] bg-[#e0f2fe] m-6 mb-10 rounded-lg shadow-lg border-2 border-[#7dd3fc] flex flex-col  hover:rotate-5 transition-all duration-400 px-5 pt-5 pb-4 overflow-hidden flex-wrap   relative
+              <div className='mobile-card w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-[#e0f2fe] m-4 md:m-6 mb-10 rounded-lg shadow-lg border-2 border-[#7dd3fc] flex flex-col  hover:rotate-5 transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap   relative
 
 
 

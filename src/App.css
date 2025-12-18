@@ -87,10 +87,16 @@
   }
 
   .mobile-controls-panel {
-    max-height: calc(100dvh - 430px);
+    max-height: calc(100dvh - 380px);
     overflow-y: auto;
     padding-bottom: 32px;
     width: 100%;
+  }
+
+  .mobile-card {
+    width: clamp(230px, 82vw, 280px);
+    height: clamp(300px, 88vw, 340px);
+    margin-bottom: 20px;
   }
 
   .mobile-controls-panel::-webkit-scrollbar {
