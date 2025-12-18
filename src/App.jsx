@@ -267,7 +267,7 @@ function App() {
 
         </div>
 
-        <div className='mobile-preview md:sticky h-auto md:h-screen w-auto flex-1 flex flex-col justify-center items-center md:-mt-7 selection:text-white selection:bg-black  pt-4 pb-4 md:pb-0  order-1 md:order-2
+        <div className='mobile-preview aurora-bg md:sticky h-auto md:h-screen w-auto flex-1 flex flex-col justify-center items-center md:-mt-7 selection:text-white selection:bg-black  pt-4 pb-4 md:pb-0  order-1 md:order-2
         bg-[radial-gradient(circle,_rgba(255,255,255,0.08)_1px,_transparent_1px)]
         bg-[size:10px_10px]
         '>

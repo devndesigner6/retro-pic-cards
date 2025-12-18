@@ -90,6 +90,38 @@ body {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
+/* Animated green aurora behind preview */
+.aurora-bg {
+  position: relative;
+  isolation: isolate;
+}
+
+.aurora-bg::before,
+.aurora-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(40% 40% at 20% 30%, rgba(110, 220, 111, 0.25), transparent 60%),
+              radial-gradient(38% 38% at 80% 25%, rgba(47, 107, 58, 0.25), transparent 60%),
+              radial-gradient(35% 35% at 50% 70%, rgba(199, 255, 99, 0.18), transparent 65%);
+  filter: blur(18px);
+  opacity: 0.85;
+  z-index: 0;
+  animation: aurora-shift 14s ease-in-out infinite alternate;
+}
+
+.aurora-bg::after {
+  animation-duration: 18s;
+  animation-direction: alternate-reverse;
+  opacity: 0.65;
+}
+
+@keyframes aurora-shift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(2%, -2%, 0) scale(1.03); }
+  100% { transform: translate3d(-3%, 3%, 0) scale(1.06); }
+}
+
 /* Confetti */
 .confetti-overlay {
   position: fixed;
