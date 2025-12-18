@@ -27,7 +27,7 @@ function Filter({ onFilterChange }) {
 
   return (
     <div className='flex flex-col justify-center'>
-        <h1 className='text-2xl mb-2' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Filters</h1>
+        <h1 className='text-2xl mb-2 bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Filters</h1>
 
         <div className='rounded-lg w-70 h-auto bg-white p-4 flex justify-start items-center gap-4 flex-wrap border-2 border-neutral-300 '>
 

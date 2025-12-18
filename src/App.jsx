@@ -137,7 +137,7 @@ function App() {
             {activeTab === 'text' && (
               <div className='flex flex-col gap-5 animate-fade-in'>
                 <div className='flex flex-col gap-2'>
-                  <h1 className='text-xl text-neutral-800' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Title</h1>
+                  <h1 className='text-xl bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Title</h1>
                   <input
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
@@ -152,7 +152,7 @@ function App() {
                 <Bold value={textColor} onChange={setTextColor} />
 
                 <div>
-                  <h1 className='text-xl mb-2 text-neutral-800' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Font Style</h1>
+                  <h1 className='text-xl mb-2 bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Font Style</h1>
                   <FontStyle selectedFont={font} onFontChange={setFont} />
                 </div>
               </div>
@@ -172,7 +172,7 @@ function App() {
 
             {activeTab === 'date' && (
               <div className='flex flex-col gap-3 animate-fade-in'>
-                <h1 className='text-xl text-neutral-800' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Date</h1>
+                <h1 className='text-xl bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Date</h1>
                 <input
                   onClick={() => dateRef.current?.showPicker()}
                   onChange={(e) => {
@@ -197,7 +197,7 @@ function App() {
         <div className='hidden md:flex h-auto md:h-screen w-auto md:w-100 bg-neutral-100 flex-col items-center pt-15 pb-15 gap-5 order-2 md:order-1 md:overflow-y-auto no-scrollbar'>
 
           <div className='flex flex-col gap-2'>
-            <h1 className='text-2xl' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Title</h1>
+            <h1 className='text-2xl bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Title</h1>
             <form action="" >
 
               <input 
@@ -218,13 +218,13 @@ function App() {
           </div>
 
           <div>
-            <h1 className='text-2xl mb-2' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Font Style</h1>
+            <h1 className='text-2xl mb-2 bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Font Style</h1>
             <FontStyle selectedFont={font} onFontChange={setFont} />
           </div>
 
 
           <div className='flex flex-col gap-2'>
-            <h1 className='text-2xl' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Date</h1>
+            <h1 className='text-2xl bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Date</h1>
             <form action=""  onClick={() => dateRef.current.showPicker()} >
 
               <input 

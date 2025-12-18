@@ -65,6 +65,30 @@
   scrollbar-width: none;
 }
 
+/* Enhanced input styling */
+input[type="text"], 
+input[type="date"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type="text"]:focus, 
+input[type="date"]:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, input, select {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
 
 /* Mobile preview + controls behavior */
 @media (max-width: 767px) {
@@ -121,11 +145,32 @@
   .animate-fade-in {
     animation: fade-in 0.3s ease-out;
   }
-}
 
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
+  @keyframes glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.1));
+    }
+    50% {
+      filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
+    }
+  }
 
-
-
-
-
+  @keyframes shimmer {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }

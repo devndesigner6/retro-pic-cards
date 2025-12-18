@@ -25,7 +25,7 @@ function Bgcolor({onChange, value}) {
     
   return (
     <div className='flex flex-col'>
-        <h1 className='text-2xl flex mb-2' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Colors</h1>
+        <h1 className='text-2xl flex mb-2 bg-gradient-to-r from-neutral-800 to-neutral-600 bg-clip-text text-transparent tracking-tight' style={{fontFamily: "'Instrument Serif', serif", fontWeight: 600}}>Colors</h1>
 
         <div className='rounded-lg w-70 h-auto bg-white p-3 flex justify-center items-center gap-2.5 flex-wrap border-2 border-neutral-300 '>
 
