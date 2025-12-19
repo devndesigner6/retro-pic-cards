@@ -276,7 +276,7 @@ function App() {
 
             <div ref={imgBoxRef} className='inline-block mobile-preview-card'>
 
-              <div className={`mobile-card glass glass-card ${cardMotionClass} w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-white m-2 md:m-6 mb-4 md:mb-10 rounded-lg border border-[rgba(0,0,0,0.08)] flex flex-col  hover:rotate-5 transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap relative
+              <div className={`mobile-card glass glass-card ${cardMotionClass} w-[260px] md:w-[320px] h-[320px] md:h-[400px] bg-white m-2 md:m-6 mb-4 md:mb-10 rounded-lg border border-[rgba(110,220,111,0.22)] flex flex-col transition-all duration-400 px-4 md:px-5 pt-4 md:pt-5 pb-3 md:pb-4 overflow-hidden flex-wrap relative
 
 
 
@@ -398,7 +398,7 @@ function App() {
 
                 <div className=' flex  flex-wrap '>
 
-                  <h1 className='mt-1 md:mt-2 text-lg break-all text-contrast text-[var(--text)]
+                  <h1 className='mt-1 md:mt-2 text-lg break-all text-[var(--text)]
 
                   boldtext:font-bold
                   italicText:italic
